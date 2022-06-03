@@ -35,6 +35,9 @@ namespace ConsoleApp1
                     case "2":
                         Exit();
                         break;
+                    default:
+                        Console.WriteLine("Ошибка");
+                        break;
                 }
             }
         }
@@ -61,8 +64,8 @@ namespace ConsoleApp1
 
         private int GetRailcarNumber()
         {
-            int PassengerPlace = 54;
-            int railcarNumber = PassengerPlace / passenger.CreatePassengers();
+            int passengerPlace = 54;
+            int railcarNumber = passengerPlace / passenger.CreatePassengers();
             return railcarNumber;
         }
 
@@ -90,18 +93,18 @@ namespace ConsoleApp1
 
     class Train
     {
-        Passenger passenger = new Passenger();
+        private Passenger passenger = new Passenger();
         private int _passengerNumber;
         private int _railcarNumber;
         private string _placeOfDeparture;
         private string _destination;
 
-        public Train(int PassengerNumber, int RailcarNumber, string PlaceOfDeparture, string Destination)
+        public Train(int passengerNumber, int railcarNumber, string placeOfDeparture, string destination)
         {
-            _passengerNumber = PassengerNumber;
-            _railcarNumber = RailcarNumber;
-            _placeOfDeparture = PlaceOfDeparture;
-            _destination = Destination;
+            _passengerNumber = passengerNumber;
+            _railcarNumber = railcarNumber;
+            _placeOfDeparture = placeOfDeparture;
+            _destination = destination;
         }
 
         public void GetInfo()
@@ -112,10 +115,12 @@ namespace ConsoleApp1
 
     class Passenger
     {
+        private int _minPassengerNumber = 1;
+        private int _maxPassengerNumber = 250;
         public int CreatePassengers()
         {
             Random random = new Random();
-            int passengers = random.Next(1, 250);
+            int passengers = random.Next(_minPassengerNumber, _maxPassengerNumber);
             return passengers;
         }
     }
