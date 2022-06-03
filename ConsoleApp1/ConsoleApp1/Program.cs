@@ -14,7 +14,7 @@ namespace ConsoleApp1
     class Terminal
     {
         private List<Train> _sentTrains = new List<Train>();
-        private Passenger passenger = new Passenger();
+        private Passenger _passenger = new Passenger();
         private bool _isWorking = true;
 
         public void Work()
@@ -49,7 +49,7 @@ namespace ConsoleApp1
             Console.WriteLine("Введите город назначения");
             string destination = Console.ReadLine();
             int railcarNumber = GetRailcarNumber();
-            int passengers = passenger.CreatePassengers();
+            int passengers = _passenger.CreatePassengers();
 
             if (placeOfDeparture.ToLower() == destination.ToLower())
             {
@@ -65,7 +65,7 @@ namespace ConsoleApp1
         private int GetRailcarNumber()
         {
             int passengerPlace = 54;
-            int railcarNumber = passengerPlace / passenger.CreatePassengers();
+            int railcarNumber = passengerPlace / _passenger.CreatePassengers();
             return railcarNumber;
         }
 
