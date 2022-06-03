@@ -14,7 +14,7 @@ namespace ConsoleApp1
     class Terminal
     {
         private List<Train> _sentTrains = new List<Train>();
-        private Passenger _passenger = new Passenger();
+        private Passengers _passenger = new Passengers();
         private bool _isWorking = true;
 
         public void Work()
@@ -93,7 +93,6 @@ namespace ConsoleApp1
 
     class Train
     {
-        private Passenger passenger = new Passenger();
         private int _passengerNumber;
         private int _railcarNumber;
         private string _placeOfDeparture;
@@ -113,7 +112,7 @@ namespace ConsoleApp1
         }
     }
 
-    class Passenger
+    class Passengers
     {
         private int _minPassengerNumber = 1;
         private int _maxPassengerNumber = 250;
